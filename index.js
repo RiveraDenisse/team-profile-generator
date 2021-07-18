@@ -4,7 +4,8 @@ const fs = require('fs');
 const generatePage = require('./develop/page-template');
 
 //TODO: create manager's questions
-const managerquestions = [
+const managerquestions = () => {
+    return inquirer.prompt([
     {
         type: 'input',
         name: 'managerName',
@@ -57,26 +58,34 @@ const managerquestions = [
           }
         }
     }
-
-];
-
+]);
+};
+const createTeam = teamData => {
+    return inquirer.prompt([
+        {
+            type: 'list',
+            name: 'License',
+            message: "Please choose a license to your project from the list below",
+            choices: ['MIT', 'Apache2.0', 'GNUGPLv3', 'MozillaPublicLicense2.0', 'TheUnlicense']
+          }
+    ]);
+    
+};
 //TODO: Create a function to write HTML file
 function writeToFile(fileName,data){
     fs.writeFile(fileName,data,err =>{
         if (err){
             return console.log(err);
         }
-        console.log("Success your Team Profile is now generated")
+        console.log("Success your Team Roster is now generated")
     });
 }
-//TODO: Create a function to initialize app
-function init() {
-    //prompt to ask set of questions
-    inquirer.prompt(managerquestions)
+//Create a function to initialize app starting with manager questions
+managerquestions()
+    //give option to create engineer,intern or finish
+   
      //then userfeedback will be used to create HTML
     .then((data)=>writeToFile('TeamRoster.html',generatePage(data)))
-}
+
     
-   
-//Function call to start app
-init()
+
