@@ -4,7 +4,61 @@ const fs = require('fs');
 const generatePage = require('./develop/page-template');
 
 //TODO: create manager's questions
-const managerquestions = [];
+const managerquestions = [
+    {
+        type: 'input',
+        name: 'managerName',
+        message: "Please enter manager's name (Required)",
+        validate: nameInput => {
+          if (nameInput) {
+            return true;
+          } else {
+            console.log("Manager's name is required");
+            return false;
+          }
+        }
+    },
+    {
+        type: 'input',
+        name: 'managerId',
+        message: "Please enter manager's ID number (Required)",
+        validate: idInput => {
+          if (idInput) {
+            return true;
+          } else {
+            console.log("Manager's ID number is required");
+            return false;
+          }
+        }
+    },
+    {
+        type: 'input',
+        name: 'managerEmail',
+        message: "Please enter manager's email (Required)",
+        validate: emailInput => {
+          if (emailInput) {
+            return true;
+          } else {
+            console.log("Manager's email is required");
+            return false;
+          }
+        }
+    },
+    {
+        type: 'input',
+        name: 'managerNumber',
+        message: "Please enter manager's office number (Required)",
+        validate: numberInput => {
+          if (numberInput) {
+            return true;
+          } else {
+            console.log("Manager's office number is required");
+            return false;
+          }
+        }
+    }
+
+];
 
 //TODO: Create a function to write HTML file
 function writeToFile(fileName,data){
