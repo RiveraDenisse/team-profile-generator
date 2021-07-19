@@ -217,12 +217,12 @@ const AddIntern = () => {
     {
       type: 'input',
       name: 'school',
-      message: "Please enter employee's school username (Required)",
+      message: "Please enter Intern's University(Required)",
       validate: emailInput => {
         if (emailInput) {
           return true;
         } else {
-          console.log("employee's username is required");
+          console.log("University information is required");
           return false;
         }
       }
