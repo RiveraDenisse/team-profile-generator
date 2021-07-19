@@ -1,5 +1,43 @@
+//team card
+function teamCard(data){
+    return`
+    <div class="row row-cols-1 row-cols-sm-3 g-4">
+<div class="col-4">
+    <div class="card mb-5 border-dark">
+    <div class="card-body bg-secondary">
+        <h5 class="card-title">${data.getName()}</h5>
+        <p class="card-text">${data.getRole()}</p>
+    </div>
+    <div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item card-link">ID: ${data.getId()}</li>
+            <li class="list-group-item">Email: ${data.getEmail()}</li>
+            <li class="list-group-item">Office number: ${data.getOffice()}</li>
+        </ul>
+    </div>
+    <div class="card-body">
+        <a href="#" class="card-link">Card link</a>
+        <a href="#" class="card-link">Another link</a>
+    </div>
+    </div>
+</div>
+</div>  `
+};
 //template for HTML file
-function generatePage(data) {
+const generatePage = data => {
+    console.log('hello=========================================')
+    console.log(data);
+    let cards = "";
+    for (let i =0; i<data.length; i++) {
+        console.log(data[i]);
+        if (data[i].getRole() === 'Manager'){
+            console.log("I am manager");
+            cards= cards+teamCard(data[i]);
+        }else if (data[i].getRole() === 'Engineer'){
+            console.log("I am engineer");
+            cards= cards+EngineerCard(data[i]);
+        }
+    } 
     return `
     <!DOCTYPE html>
     <html lang="en">
@@ -26,14 +64,14 @@ function generatePage(data) {
                 <div class="col-4">
                     <div class="card mb-5 border-dark">
                     <div class="card-body bg-secondary">
-                        <h5 class="card-title">${data.managerName}</h5>
-                        <p class="card-text">${data.managerRole}</p>
+                        <h5 class="card-title">data.getName</h5>
+                        <p class="card-text">Manager</p>
                     </div>
                     <div>
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item card-link">ID: ${data.managerId}</li>
-                            <li class="list-group-item">Email: ${data.managerEmail}</li>
-                            <li class="list-group-item">Office number: ${data.managerNumber}</li>
+                            <li class="list-group-item card-link">ID: data.getId</li>
+                            <li class="list-group-item">Email: data.getEmail</li>
+                            <li class="list-group-item">Office number: data.getOffice()</li>
                         </ul>
                     </div>
                     <div class="card-body">
@@ -43,6 +81,7 @@ function generatePage(data) {
                     </div>
                 </div>
             </div>  
+            ${cards}
         </div>
     </body>
     </html>
