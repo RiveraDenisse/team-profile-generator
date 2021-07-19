@@ -91,15 +91,51 @@ const AddTeam = () => {
             return false;
           }
         }
+      },
+      {
+        type: 'input',
+        name: 'id',
+        message: "Please enter employee ID number (Required)",
+        validate: idInput => {
+          if (idInput) {
+            return true;
+          } else {
+            console.log("ID number is required");
+            return false;
+          }
+        }
+    },
+    {
+        type: 'input',
+        name: 'email',
+        message: "Please enter employee's email (Required)",
+        validate: emailInput => {
+          if (emailInput) {
+            return true;
+          } else {
+            console.log("employee's email is required");
+            return false;
+          }
+        }
+    },
+    {
+      type: 'input',
+      name: 'github',
+      message: "Please enter employee's github username (Required)",
+      validate: emailInput => {
+        if (emailInput) {
+          return true;
+        } else {
+          console.log("employee's username is required");
+          return false;
+        }
       }
+  }
     ])
     //end of questions
     .then (memberData => {
       if (memberData.options === 'Add an Engineer') {
         memberData.role = 'Engineer';
-        memberData.id = '123';
-        memberData.email = 'email@';
-        memberData.github = 'Github';
         teamMembers.push(new Engineer(memberData.Name,memberData.id,memberData.email,memberData.role,memberData.github));
         console.log(teamMembers);
         AddTeam();

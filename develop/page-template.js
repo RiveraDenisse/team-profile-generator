@@ -1,27 +1,49 @@
 //team card
-function teamCard(data){
+function ManagerCard(data){
     return`
-    <div class="row row-cols-1 row-cols-sm-3 g-4">
-<div class="col-4">
-    <div class="card mb-5 border-dark">
-    <div class="card-body bg-secondary">
-        <h5 class="card-title">${data.getName()}</h5>
-        <p class="card-text">${data.getRole()}</p>
-    </div>
-    <div>
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item card-link">ID: ${data.getId()}</li>
-            <li class="list-group-item">Email: ${data.getEmail()}</li>
-            <li class="list-group-item">Office number: ${data.getOffice()}</li>
-        </ul>
-    </div>
-    <div class="card-body">
-        <a href="#" class="card-link">Card link</a>
-        <a href="#" class="card-link">Another link</a>
-    </div>
-    </div>
-</div>
-</div>  `
+        <div class="col-4">
+            <div class="card mb-5 border-dark">
+                <div class="card-body bg-secondary">
+                    <h5 class="card-title">${data.getName()}</h5>
+                    <p class="card-text">${data.getRole()}</p>
+                </div>
+                <div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item card-link">ID: ${data.getId()}</li>
+                        <li class="list-group-item">Email: ${data.getEmail()}</li>
+                        <li class="list-group-item">Office number: ${data.getOffice()}</li>
+                    </ul>
+                </div>
+                <div class="card-body">
+                    <a href="#" class="card-link">Card link</a>
+                    <a href="#" class="card-link">Another link</a>
+                </div>
+            </div>
+        </div>
+    `
+};
+function EngineerCard(data){
+    return`
+        <div class="col-4">
+            <div class="card mb-5 border-dark">
+                <div class="card-body bg-secondary">
+                    <h5 class="card-title">${data.getName()}</h5>
+                    <p class="card-text">${data.getRole()}</p>
+                </div>
+                <div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item card-link">ID: ${data.getId()}</li>
+                        <li class="list-group-item">Email: ${data.getEmail()}</li>
+                        <li class="list-group-item">Office number: ${data.getGithub()}</li>
+                    </ul>
+                </div>
+                <div class="card-body">
+                    <a href="#" class="card-link">Card link</a>
+                    <a href="#" class="card-link">Another link</a>
+                </div>
+            </div>
+        </div>
+    `
 };
 //template for HTML file
 const generatePage = data => {
@@ -32,7 +54,7 @@ const generatePage = data => {
         console.log(data[i]);
         if (data[i].getRole() === 'Manager'){
             console.log("I am manager");
-            cards= cards+teamCard(data[i]);
+            cards= cards+ManagerCard(data[i]);
         }else if (data[i].getRole() === 'Engineer'){
             console.log("I am engineer");
             cards= cards+EngineerCard(data[i]);
@@ -61,27 +83,8 @@ const generatePage = data => {
         </header>
         <div class="container-fluid">
             <div class="row row-cols-1 row-cols-sm-3 g-4">
-                <div class="col-4">
-                    <div class="card mb-5 border-dark">
-                    <div class="card-body bg-secondary">
-                        <h5 class="card-title">data.getName</h5>
-                        <p class="card-text">Manager</p>
-                    </div>
-                    <div>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item card-link">ID: data.getId</li>
-                            <li class="list-group-item">Email: data.getEmail</li>
-                            <li class="list-group-item">Office number: data.getOffice()</li>
-                        </ul>
-                    </div>
-                    <div class="card-body">
-                        <a href="#" class="card-link">Card link</a>
-                        <a href="#" class="card-link">Another link</a>
-                    </div>
-                    </div>
-                </div>
-            </div>  
-            ${cards}
+                ${cards}
+            </div>
         </div>
     </body>
     </html>
