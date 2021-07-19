@@ -4,7 +4,10 @@ function ManagerCard(data){
         <div class="col-4">
             <div class="card mb-5 border-dark">
                 <div class="card-body bg-secondary">
-                    <h5 class="card-title">${data.getName()}</h5>
+                    <h5 class="card-title"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-person" viewBox="0 0 16 16">
+                    <path d="M12 1a1 1 0 0 1 1 1v10.755S12 11 8 11s-5 1.755-5 1.755V2a1 1 0 0 1 1-1h8zM4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4z"/>
+                    <path d="M8 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                  </svg>${data.getName()}</h5>
                     <p class="card-text">${data.getRole()}</p>
                 </div>
                 <div>
@@ -13,10 +16,6 @@ function ManagerCard(data){
                         <li class="list-group-item">Email: <a href="mailto:${data.getEmail()}">${data.getEmail()}</a></li>
                         <li class="list-group-item">Office number: ${data.getOffice()}</li>
                     </ul>
-                </div>
-                <div class="card-body">
-                    <a href="#" class="card-link">Card link</a>
-                    <a href="#" class="card-link">Another link</a>
                 </div>
             </div>
         </div>
@@ -28,7 +27,10 @@ function EngineerCard(data){
         <div class="col-4">
             <div class="card mb-5 border-dark">
                 <div class="card-body bg-secondary">
-                    <h5 class="card-title">${data.getName()}</h5>
+                    <h5 class="card-title"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-person" viewBox="0 0 16 16">
+                    <path d="M12 1a1 1 0 0 1 1 1v10.755S12 11 8 11s-5 1.755-5 1.755V2a1 1 0 0 1 1-1h8zM4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4z"/>
+                    <path d="M8 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                  </svg>${data.getName()}</h5>
                     <p class="card-text">${data.getRole()}</p>
                 </div>
                 <div>
@@ -37,10 +39,6 @@ function EngineerCard(data){
                         <li class="list-group-item">Email: <a href="mailto:${data.getEmail()}">${data.getEmail()}</a></li>
                         <li class="list-group-item">Github: <a href = "https://www.github.com/${data.getGithub()}/" target = "_blank">${data.getGithub()}</a></li>
                     </ul>
-                </div>
-                <div class="card-body">
-                    <a href="#" class="card-link">Card link</a>
-                    <a href="#" class="card-link">Another link</a>
                 </div>
             </div>
         </div>
@@ -52,7 +50,10 @@ function InternCard(data){
         <div class="col-4">
             <div class="card mb-5 border-dark">
                 <div class="card-body bg-secondary">
-                    <h5 class="card-title">${data.getName()}</h5>
+                    <h5 class="card-title"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-person" viewBox="0 0 16 16">
+                    <path d="M12 1a1 1 0 0 1 1 1v10.755S12 11 8 11s-5 1.755-5 1.755V2a1 1 0 0 1 1-1h8zM4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4z"/>
+                    <path d="M8 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                  </svg>${data.getName()}</h5>
                     <p class="card-text">${data.getRole()}</p>
                 </div>
                 <div>
@@ -61,10 +62,6 @@ function InternCard(data){
                         <li class="list-group-item">Email: <a href="mailto:${data.getEmail()}">${data.getEmail()}</a></li>
                         <li class="list-group-item">School: ${data.getSchool()}</li>
                     </ul>
-                </div>
-                <div class="card-body">
-                    <a href="#" class="card-link">Card link</a>
-                    <a href="#" class="card-link">Another link</a>
                 </div>
             </div>
         </div>
