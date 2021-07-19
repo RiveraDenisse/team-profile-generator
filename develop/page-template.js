@@ -10,7 +10,7 @@ function ManagerCard(data){
                 <div>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item card-link">ID: ${data.getId()}</li>
-                        <li class="list-group-item">Email: ${data.getEmail()}</li>
+                        <li class="list-group-item">Email: <a href="mailto:${data.getEmail()}">${data.getEmail()}</a></li>
                         <li class="list-group-item">Office number: ${data.getOffice()}</li>
                     </ul>
                 </div>
@@ -33,8 +33,8 @@ function EngineerCard(data){
                 <div>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item card-link">ID: ${data.getId()}</li>
-                        <li class="list-group-item">Email: ${data.getEmail()}</li>
-                        <li class="list-group-item">Github: ${data.getGithub()}</li>
+                        <li class="list-group-item">Email: <a href="mailto:${data.getEmail()}">${data.getEmail()}</a></li>
+                        <li class="list-group-item">Github: <a href = "https://www.github.com/${data.getGithub()}/" target = "_blank">${data.getGithub()}</a></li>
                     </ul>
                 </div>
                 <div class="card-body">
@@ -56,7 +56,7 @@ function InternCard(data){
                 <div>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item card-link">ID: ${data.getId()}</li>
-                        <li class="list-group-item">Email: ${data.getEmail()}</li>
+                        <li class="list-group-item">Email: <a href="mailto:${data.getEmail()}">${data.getEmail()}</a></li>
                         <li class="list-group-item">School: ${data.getSchool()}</li>
                     </ul>
                 </div>

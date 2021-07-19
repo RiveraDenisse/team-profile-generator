@@ -1,7 +1,7 @@
 const Manager = require("../lib/Manager");
 
 //to create new manager class
-const manager = new Manager("Denisse",20,"manager@email.com","Manager","123-456-7890");
+const manager = new Manager("Denisse",20,"manager@email.com","123-456-7890","Manager");
 
 //test creates a new manager with name,id,email
 test('creates a new Manager', () => {
@@ -10,7 +10,7 @@ test('creates a new Manager', () => {
     expect(manager.id).toBe(20);
     expect(manager.email).toBe("manager@email.com");
     expect(manager.role).toBe("Manager");
-    expect(manager.phone).toEqual(expect.any(String));
+    expect(manager.phone).toBe("123-456-7890");
 });
 //getName()
 test("get name", () => {    
@@ -19,7 +19,7 @@ test("get name", () => {
 
 //getId()
 test("get  ID", () => {
-    expect(manager.getId()).toBe(20);
+    expect(manager.getId()).toBe("20");
 })
 
 //getemail()
@@ -32,5 +32,5 @@ test("get manager role", () => {
 })
 //getphone()
 test("get manager phone", () => {
-    expect(manager.getPhone()).toEqual(expect.any(String));
+    expect(manager.getOffice()).toBe("123-456-7890");
 })
