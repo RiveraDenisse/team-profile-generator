@@ -70,16 +70,36 @@ const managerquestions = () => {
         console.log(teamMembers);
   })
 };
+//to ask question about what to do next
 const AddTeam = () => {
   return inquirer.prompt([
-      {
-          type: 'list',
-          name: 'options',
-          message: "What would you like to do?",
-          choices: ['Add an Engineer', 'Add an Intern', 'Finish']
-          //need to validate if engineer,intern or finish
-      }, 
-      {
+    {
+      type: 'list',
+      name: 'options',
+      message: "What would you like to do?",
+      choices: ['Add an Engineer', 'Add an Intern', 'Finish']
+      //need to validate if engineer,intern or finish
+    },    
+  ])
+  .then (answer => {
+    //if user selects engineer then it will go to AddEngineer function
+    if (answer.options === 'Add an Engineer') {
+      console.log ("you chose an engineer");
+      AddEngineer();
+    //if user selects Intern then it will go to AddIntern function
+    } else if (answer.options === "Add an Intern") {
+        AddIntern();
+    } 
+    //if finish then it will create HTML file using data saved
+    else {
+      writeToFile('TeamRoster.html',generatePage(teamMembers));
+    }
+  })
+}
+
+const AddEngineer = () => {
+  return inquirer.prompt([
+    {
         type: 'input',
         name: 'Name',
         message: "Please enter employee's name (Required)",
@@ -134,22 +154,76 @@ const AddTeam = () => {
     ])
     //end of questions
     .then (memberData => {
-      if (memberData.options === 'Add an Engineer') {
-        memberData.role = 'Engineer';
+      memberData.role = 'Engineer';
         teamMembers.push(new Engineer(memberData.Name,memberData.id,memberData.email,memberData.role,memberData.github));
         console.log(teamMembers);
         AddTeam();
-        //promptEngineer();
-        } //else if (memberData.options === 'Add an Intern'){
-           //AddTeam();
-        //} 
-        else {
-            return teamMembers;
-        }
   })
 };
-
-//TODO: Create a function to write HTML file
+const AddIntern = () => {
+  return inquirer.prompt([
+    {
+        type: 'input',
+        name: 'Name',
+        message: "Please enter employee's name (Required)",
+        validate: NameInput => {
+          if (NameInput) {
+            return true;
+          } else {
+            console.log("Employee's name is required");
+            return false;
+          }
+        }
+      },
+      {
+        type: 'input',
+        name: 'id',
+        message: "Please enter employee ID number (Required)",
+        validate: idInput => {
+          if (idInput) {
+            return true;
+          } else {
+            console.log("ID number is required");
+            return false;
+          }
+        }
+    },
+    {
+        type: 'input',
+        name: 'email',
+        message: "Please enter employee's email (Required)",
+        validate: emailInput => {
+          if (emailInput) {
+            return true;
+          } else {
+            console.log("employee's email is required");
+            return false;
+          }
+        }
+    },
+    {
+      type: 'input',
+      name: 'school',
+      message: "Please enter employee's school username (Required)",
+      validate: emailInput => {
+        if (emailInput) {
+          return true;
+        } else {
+          console.log("employee's username is required");
+          return false;
+        }
+      }
+  }
+    ])
+    //end of questions it will saved information on teamMembers as intern
+    .then (memberData => {
+      memberData.role = 'Intern';
+        teamMembers.push(new Intern(memberData.Name,memberData.id,memberData.email,memberData.role,memberData.school));
+        console.log(teamMembers);
+        AddTeam();
+  })
+};
+//Create a function to write HTML file
 function writeToFile(fileName,teamMembers){
     fs.writeFile(fileName,teamMembers,err =>{
         if (err){
@@ -162,5 +236,5 @@ function writeToFile(fileName,teamMembers){
 managerquestions()
   //give option to create engineer,intern or finish
   .then(AddTeam)
-  //then userfeedback will be used to create HTML
-  .then(()=>writeToFile('TeamRoster.html',generatePage(teamMembers)))
+  
+ 

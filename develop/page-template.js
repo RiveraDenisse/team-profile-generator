@@ -34,7 +34,30 @@ function EngineerCard(data){
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item card-link">ID: ${data.getId()}</li>
                         <li class="list-group-item">Email: ${data.getEmail()}</li>
-                        <li class="list-group-item">Office number: ${data.getGithub()}</li>
+                        <li class="list-group-item">Github: ${data.getGithub()}</li>
+                    </ul>
+                </div>
+                <div class="card-body">
+                    <a href="#" class="card-link">Card link</a>
+                    <a href="#" class="card-link">Another link</a>
+                </div>
+            </div>
+        </div>
+    `
+};
+function InternCard(data){
+    return`
+        <div class="col-4">
+            <div class="card mb-5 border-dark">
+                <div class="card-body bg-secondary">
+                    <h5 class="card-title">${data.getName()}</h5>
+                    <p class="card-text">${data.getRole()}</p>
+                </div>
+                <div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item card-link">ID: ${data.getId()}</li>
+                        <li class="list-group-item">Email: ${data.getEmail()}</li>
+                        <li class="list-group-item">School: ${data.getSchool()}</li>
                     </ul>
                 </div>
                 <div class="card-body">
@@ -58,6 +81,9 @@ const generatePage = data => {
         }else if (data[i].getRole() === 'Engineer'){
             console.log("I am engineer");
             cards= cards+EngineerCard(data[i]);
+        } else if (data[i].getRole() === 'Intern'){
+            console.log("I am Intern");
+            cards= cards+InternCard(data[i]);
         }
     } 
     return `
