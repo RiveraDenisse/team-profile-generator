@@ -10,6 +10,11 @@ const teamMembers = [];
 
 //TODO: create manager's questions
 const managerquestions = () => {
+  console.log (`
+      =================================
+      MANAGER INFORMATION
+      =================================
+      `);
     return inquirer.prompt([
     {
         type: 'input',
@@ -67,7 +72,6 @@ const managerquestions = () => {
   .then (memberData =>{
     memberData.role === 'Manager';
     teamMembers.push(new Manager(memberData.managerName,memberData.managerId,memberData.managerEmail,memberData.managerNumber,memberData.role));
-        console.log(teamMembers);
   })
 };
 //to ask question about what to do next
@@ -78,16 +82,26 @@ const AddTeam = () => {
       name: 'options',
       message: "What would you like to do?",
       choices: ['Add an Engineer', 'Add an Intern', 'Finish']
-      //need to validate if engineer,intern or finish
+      
     },    
   ])
+  //to validate if engineer,intern or finish
   .then (answer => {
     //if user selects engineer then it will go to AddEngineer function
     if (answer.options === 'Add an Engineer') {
-      console.log ("you chose an engineer");
+      console.log (`
+      =================================
+      ENGINEER INFORMATION
+      =================================
+      `);
       AddEngineer();
     //if user selects Intern then it will go to AddIntern function
     } else if (answer.options === "Add an Intern") {
+      console.log (`
+      =================================
+      INTERN INFORMATION
+      =================================
+      `);
         AddIntern();
     } 
     //if finish then it will create HTML file using data saved
@@ -156,7 +170,6 @@ const AddEngineer = () => {
     .then (memberData => {
       memberData.role = 'Engineer';
         teamMembers.push(new Engineer(memberData.Name,memberData.id,memberData.email,memberData.role,memberData.github));
-        console.log(teamMembers);
         AddTeam();
   })
 };
@@ -219,7 +232,6 @@ const AddIntern = () => {
     .then (memberData => {
       memberData.role = 'Intern';
         teamMembers.push(new Intern(memberData.Name,memberData.id,memberData.email,memberData.role,memberData.school));
-        console.log(teamMembers);
         AddTeam();
   })
 };

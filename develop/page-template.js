@@ -1,4 +1,4 @@
-//team card
+//manger information will use this template
 function ManagerCard(data){
     return`
         <div class="col-4">
@@ -22,6 +22,7 @@ function ManagerCard(data){
         </div>
     `
 };
+//engineer information will use this template
 function EngineerCard(data){
     return`
         <div class="col-4">
@@ -45,6 +46,7 @@ function EngineerCard(data){
         </div>
     `
 };
+//intern information will use this template
 function InternCard(data){
     return`
         <div class="col-4">
@@ -70,19 +72,13 @@ function InternCard(data){
 };
 //template for HTML file
 const generatePage = data => {
-    console.log('hello=========================================')
-    console.log(data);
     let cards = "";
     for (let i =0; i<data.length; i++) {
-        console.log(data[i]);
         if (data[i].getRole() === 'Manager'){
-            console.log("I am manager");
             cards= cards+ManagerCard(data[i]);
         }else if (data[i].getRole() === 'Engineer'){
-            console.log("I am engineer");
             cards= cards+EngineerCard(data[i]);
         } else if (data[i].getRole() === 'Intern'){
-            console.log("I am Intern");
             cards= cards+InternCard(data[i]);
         }
     } 
